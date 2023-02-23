@@ -13,3 +13,25 @@ export const useUpdateFields = () => {
     },
   };
 };
+
+export const useNewAnimal = () => {
+  const dispatch = useDispatch();
+
+  return {
+    onSubmit: () => {
+      console.log("dispatching CREATE_ANIMAL action");
+      dispatch(actions.createAnimal());
+    },
+  };
+};
+
+export const useEditAnimal = (animalID) => {
+  const dispatch = useDispatch();
+
+  return {
+    onSubmit: () => {
+      console.log("Dispatching EDIT_ANIMAL action");
+      dispatch(actions.editAnimal(animalID));
+    },
+  };
+};
