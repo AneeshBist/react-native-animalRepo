@@ -1,8 +1,11 @@
-import animal from "../components/feature/animal/reducers";
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux'
+import animal from '../features/animal/reducers'
+// import habitat from '../features/habitat/reducers'
 
 const rootReducer = combineReducers({
-  animal,
-});
+    animal,
+    // habitat
+})
 
-export default rootReducer;
+export default rootReducer
+
