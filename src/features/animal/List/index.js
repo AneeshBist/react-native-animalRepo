@@ -1,10 +1,9 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useListAnimals } from "../hooks";
 import Row from "./row";
-import Title from "../../../components/Title";
-import Button from "../../../components/Button";
+import styles from "./styles";
 
 const List = () => {
   const { navigate } = useNavigation();
@@ -12,7 +11,7 @@ const List = () => {
 
   return (
     <View>
-      <Title text="Animals List" />
+      <Text>Animals List</Text>
 
       {animals && animals.length > 0 ? (
         <FlatList
@@ -22,13 +21,12 @@ const List = () => {
         />
       ) : (
         <>
-          <Text>{"No animals yet!"}</Text>
+          <Text>{"No Animals"}</Text>
           <Button
-            text="Add Animal"
+            title={"Add Animal"}
             onPress={() => {
               navigate("Add Animal");
             }}
-            disabled={false}
           />
         </>
       )}

@@ -65,6 +65,12 @@ const reducers = {
 
     state.form.fields = fields;
   },
+  loadAnimals: (state) => {
+    // state.status =
+  },
+  loadResult: (state, { payload }) => {
+    state.list.animals = payload;
+  },
 };
 
 const slice = createSlice({
@@ -83,6 +89,8 @@ export const {
   editAnimalError,
   editAnimalReset,
   setFormField,
+  loadAnimals,
+  loadResult,
 } = slice.actions;
 
 export default slice.reducer;

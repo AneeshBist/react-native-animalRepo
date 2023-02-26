@@ -1,32 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { PENDING, INPROGRESS } from "../../utilities/helpers";
 import * as actions from "./reducers";
 
-export const useUpdateFields = (animalID = null) => {
+export const useUpdateFields = () => {
   const dispatch = useDispatch();
-  const status = useSelector((state) => state.animal.edit.status);
   const fields = useSelector((state) => state.animal.form.fields);
-
-  console.log(
-    "animal ID ::: ",
-    animalID,
-    status,
-    animalID && status !== INPROGRESS
-  );
-
-  useEffect(() => {
-    if (animalID && status === PENDING) {
-      dispatch(actions.setForm(animalID));
-    }
-  }, [animalID, status]);
 
   return {
     fields,
     setFormField: (field, value) => {
       console.log(`Updating field ${field} to ${value}`);
-
-      dispatch(actions.setFormField({ field, value }));
+      return dispatch(actions.setFormField({ field, value }));
     },
   };
 };
@@ -42,6 +26,15 @@ export const useNewAnimal = () => {
   };
 };
 
+export const useListAnimals = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(actions.loadAnimals());
+  }, [dispatch]);
+
+  return useSelector((state) => state.animal.list.animals);
+};
 export const useCreateAnimalStatus = () => {
   return useSelector((state) => state.animal.create.status);
 };
@@ -63,6 +56,4 @@ export const useEditAnimalStatus = () => {
   return useSelector((state) => state.animal.edit.status);
 };
 
-export const useListAnimals = () => {
-  return useSelector((state) => state.animal.list.animals);
-};
+export const useResetForm = () => {};
