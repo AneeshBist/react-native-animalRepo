@@ -27,7 +27,8 @@
     "react-native-screens": "~3.18.0",
     "react-native-web": "~0.18.7",
     "react-redux": "^8.0.5",
-    "redux-saga": "^1.2.2"
+    "redux-saga": "^1.2.2",
+    "expo-notifications": "~0.17.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3"
